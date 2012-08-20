@@ -133,6 +133,7 @@
         if ( [model connected] ) {
 			NSImage *rawIcon2 = [NSImage imageNamed: [self modeIndicatorIconname:[model mode]]];
             [rawIcon2 drawAtPoint:NSMakePoint(22, 0) fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];                
+<<<<<<< HEAD
             if ([[model preferences] showConnectionTime]) {
 				// create raw icon with connection time
 				NSImage *rawIcon3 = [[[NSImage alloc] initWithSize:NSMakeSize([modeString size].width, 22)] autorelease];				
@@ -144,6 +145,14 @@
 			}
         } else if ((![model serviceAvailable]) || ([model ongoingPIN])) {
                 NSImage *rawIcon2 = [NSImage imageNamed: @"lock-off"];            
+=======
+            // show connection time
+            [modeString drawAtPoint:NSMakePoint(41, 3)];
+            [modeString release];
+        } else {
+            if ([model carrier] == NULL) {
+                rawIcon2 = [NSImage imageNamed: @"lock-off"];            
+>>>>>>> parent of 40f731a... Fixed a stupidity
                 [rawIcon2 drawAtPoint:NSMakePoint(22, 0) fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];                
         }
         // unlock drawing focus again
